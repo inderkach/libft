@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fdanny <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/19 16:06:01 by fdanny            #+#    #+#             */
-/*   Updated: 2021/04/24 18:13:51 by fdanny           ###   ########.fr       */
+/*   Created: 2021/04/24 17:50:19 by fdanny            #+#    #+#             */
+/*   Updated: 2021/04/28 19:37:58 by fdanny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	*ft_memccpy(void *dest, void *src, int c, size_t n)
 {
-	unsigned char	*cs1;
-	unsigned char	*cs2;
+	size_t			i;
+	unsigned char	*d;
+	unsigned char	*s;
+	unsigned char	cchar;
 
-	cs1 = (unsigned char *)s1;
-	cs2 = (unsigned char *)s2;
-	while (n != 0 && (*cs1 || *cs2))
+	if (dest == 0 || src == 0)
+		return (NULL);
+	s = (unsigned char *)src;
+	d = (unsigned char *)dest;
+	cchar = (unsigned char)c;
+	i = 0;
+	while (i < n)
 	{
-		if (*cs1 != *cs2)
-			return (*cs1 - *cs2);
-		cs1++;
-		cs2++;
-		n--;
+		*(d + i) = *(s + i);
+		if (*(s + i) == cchar)
+			return (dest + i + 1);
+		i++;
 	}
-	return (0);
+	return (NULL);
 }

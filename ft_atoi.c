@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdanny <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: fdanny <fdanny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 16:06:17 by fdanny            #+#    #+#             */
-/*   Updated: 2021/04/19 16:06:19 by fdanny           ###   ########.fr       */
+/*   Updated: 2021/05/11 16:25:49 by fdanny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int	ft_atoi(const char *str)
 {
 	size_t			p;
-	int				sign;
-	unsigned long	result;
+	long long int	sign;
+	long long		result;
 
 	sign = 1;
 	p = 0;

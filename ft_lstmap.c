@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fdanny <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/19 13:17:41 by fdanny            #+#    #+#             */
-/*   Updated: 2021/04/24 18:12:26 by fdanny           ###   ########.fr       */
+/*   Created: 2021/04/24 19:04:49 by fdanny            #+#    #+#             */
+/*   Updated: 2021/04/28 19:37:01 by fdanny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	size_t	length;
-	size_t	p;
+	t_list	*new;
+	t_list	*iternew;
 
-	if (!dst || !src)
+	if (lst == 0 || f == 0 || del == 0)
 		return (0);
-	length = ft_strlen(src);
-	if (dstsize == 0)
-		return (length);
-	p = 0;
-	while (p < dstsize && *(src + p) != '\0')
+	new = ft_lstnew(f(lst->content));
+	if (new == 0)
+		return (0);
+	iternew = new->next;
+	lst = lst->next;
+	while (lst != 0)
 	{
-		*(dst + p) = *(src + p);
-		p++;
+		iternew = ft_lstnew(f(lst->content));
+		if (iternew == 0)
+		{
+			ft_lstclear(&new, del);
+			return (0);
+		}
+		lst = lst->next;
+		iternew = iternew->next;
 	}
-	if (dstsize < length)
-		*(dst + dstsize - 1) = '\0';
-	else
-		*(dst + p) = '\0';
-	return (length);
+	iternew = NULL;
+	return (new);
 }

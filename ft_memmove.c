@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fdanny <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/19 16:06:01 by fdanny            #+#    #+#             */
-/*   Updated: 2021/04/24 18:13:51 by fdanny           ###   ########.fr       */
+/*   Created: 2021/04/24 17:54:09 by fdanny            #+#    #+#             */
+/*   Updated: 2021/04/24 17:54:25 by fdanny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	unsigned char	*cs1;
-	unsigned char	*cs2;
+	char	*s;
+	char	*d;
 
-	cs1 = (unsigned char *)s1;
-	cs2 = (unsigned char *)s2;
-	while (n != 0 && (*cs1 || *cs2))
+	if (dst == src)
+		return (dst);
+	s = (char *)src;
+	d = (char *)dst;
+	if (s > d)
 	{
-		if (*cs1 != *cs2)
-			return (*cs1 - *cs2);
-		cs1++;
-		cs2++;
-		n--;
+		while (n-- != 0)
+		{
+			*(d++) = *(s++);
+		}
 	}
-	return (0);
+	else
+	{
+		while (n-- != 0)
+		{
+			*(d + n) = *(s + n);
+		}
+	}
+	return (dst);
 }

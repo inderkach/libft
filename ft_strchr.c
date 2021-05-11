@@ -19,7 +19,9 @@ char	*ft_strchr(const char *s, int c)
 
 	cc = (char)c;
 	i = (char *)s;
-	while (*i != '\0' && *i != cc)
+	while (*i != cc && *i != '\0')
 		i++;
-	return (i);
+	if (*i != '\0' || cc == '\0')
+		return (i);
+	return (0);
 }
