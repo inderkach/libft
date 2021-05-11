@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdanny <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: fdanny <fdanny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 17:50:19 by fdanny            #+#    #+#             */
-/*   Updated: 2021/04/28 19:37:58 by fdanny           ###   ########.fr       */
+/*   Updated: 2021/05/11 21:48:07 by fdanny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ void	*ft_memccpy(void *dest, void *src, int c, size_t n)
 	unsigned char	*s;
 	unsigned char	cchar;
 
-	if (dest == 0 || src == 0)
-		return (NULL);
 	s = (unsigned char *)src;
 	d = (unsigned char *)dest;
 	cchar = (unsigned char)c;
