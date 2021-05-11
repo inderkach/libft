@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdanny <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: fdanny <fdanny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 12:46:38 by fdanny            #+#    #+#             */
-/*   Updated: 2021/04/24 18:00:35 by fdanny           ###   ########.fr       */
+/*   Updated: 2021/05/11 22:13:04 by fdanny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	if (a == 0)
 		return (NULL);
 	else
-		ft_bzero(a, nmemb);
+		ft_bzero(a, nmemb * size);
 	return (a);
 }
