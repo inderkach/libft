@@ -6,7 +6,7 @@
 /*   By: fdanny <fdanny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 12:50:32 by fdanny            #+#    #+#             */
-/*   Updated: 2021/05/11 16:12:34 by fdanny           ###   ########.fr       */
+/*   Updated: 2021/05/12 19:21:57 by fdanny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	ps1;
 	size_t	pres;
 
-	result = (char *)malloc(sizeof(char) * ft_lengthofres(s1, set));
+	if (s1 == NULL)
+		return (NULL);
+	result = (char *)malloc(sizeof(char) * ft_lengthofres(s1, set) + 1);
 	if (result == 0)
 		return (NULL);
 	ps1 = 0;
@@ -63,12 +65,16 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (*(s1 + ps1) != '\0' && ft_isinset(*(s1 + ps1), set))
 	{
 		ps1++;
+		//printf("%s\n--\n", s1 + ps1);
 	}
+	
 	while (pres < ft_lengthofres(s1, set))
 	{
 		*(result + pres) = *(s1 + ps1 + pres);
+		//printf("%c", *(result + pres));
 		pres++;
 	}
 	*(result + pres) = '\0';
+	//printf("%s", (result));
 	return (result);
 }
