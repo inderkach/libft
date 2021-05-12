@@ -1,17 +1,18 @@
-
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+         #
+#    By: fdanny <fdanny@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/10/07 11:05:52 by rchallie          #+#    #+#              #
-#    Updated: 2020/08/13 22:17:48 by rchallie         ###   ########.fr        #
+#    Created: 2021/05/12 23:59:45 by fdanny            #+#    #+#              #
+#    Updated: 2021/05/13 00:00:01 by fdanny           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = ft_atoi.c\
+NAME = libft.a
+CFLAGS = -Wall -Wextra -Werror
+SRCS_M = ft_atoi.c\
 	ft_bzero.c\
 	ft_calloc.c\
 	ft_isalnum.c\
@@ -46,39 +47,30 @@ SRCS = ft_atoi.c\
 	ft_tolower.c\
 	ft_toupper.c
 
-# SRCSB =	ft_lstnew.c\
-# 	ft_lstadd_front.c\
-# 	ft_lstsize.c\
-# 	ft_lstlast.c\
-# 	ft_lstadd_back.c\
-# 	ft_lstdelone.c\
-# 	ft_lstclear.c\
-# 	ft_lstclear.c\
-# 	ft_lstiter.c\
-# 	ft_lstmap.c\
-# 		$(SRCS)
+SRCS_B = ft_lstnew.c\
+	ft_lstadd_front.c\
+	ft_lstsize.c\
+	ft_lstlast.c\
+	ft_lstadd_back.c\
+	ft_lstdelone.c\
+	ft_lstclear.c\
+	ft_lstclear.c\
+	ft_lstiter.c\
+	ft_lstmap.c\
+	$(SRCS)
 
-NAME = libft.a
-
-OBJS_DIR = objs/
-OBJS = $(SRCS:.c=.o)
-OBJECTS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJS))
-
-OBJSB = $(SRCSB:.c=.o)
-OBJECTS_BONUS_PREFIXED = $(addprefix $(OBJS_DIR), $(OBJSB))
-
-CC = clang
-
-CC_FLAGS = -Wall -Wextra -Werror
+OBJS_DIR = ./objs/
+OBJS_M = $(SRCS_M:.c=.o)
+OBJS_B = $(SRCS_B:.c=.o)
+DIR_OBJ_M = $(addprefix $(OBJS_DIR), $(OBJS_M))
+DIR_OBJ_B = $(addprefix $(OBJS_DIR), $(OBJS_B))
 
 $(OBJS_DIR)%.o : %.c libft.h
-	@mkdir -p $(OBJS_DIR)
-	@echo "Compiling: $<"
-	@clang $(CC_FLAGS) -c $< -o $@
+	mkdir -p $(OBJS_DIR)
+	gcc $(CFLAGS) -c $< -o $@
 
-$(NAME): $(OBJECTS_PREFIXED)
-	@ar r $(NAME) $(OBJECTS_PREFIXED)
-	@echo "Libft Done !"
+$(NAME): $(DIR_OBJ_M)
+	ar r $(NAME) $(DIR_OBJ_M)
 
 all: $(NAME)
 
@@ -90,6 +82,5 @@ fclean: clean
 
 re: fclean all
 
-#bonus: $(OBJECTS_BONUS_PREFIXED)
-#	@ar r $(NAME) $(OBJECTS_BONUS_PREFIXED)
-#	@echo "Libft Bonus Done !"
+bonus: $(DIR_OBJ_B)
+	@ar r $(NAME) $(DIR_OBJ_B)
