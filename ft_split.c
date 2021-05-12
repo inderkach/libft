@@ -6,7 +6,7 @@
 /*   By: fdanny <fdanny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 12:51:47 by fdanny            #+#    #+#             */
-/*   Updated: 2021/05/12 19:29:26 by fdanny           ###   ########.fr       */
+/*   Updated: 2021/05/12 21:08:59 by fdanny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	ft_nwords(const char *s, char c)
 
 	ptrs = (char *)s;
 	n = 0;
+	if (*ptrs != c)
+		n++;
 	isprevc = 0;
 	while (*ptrs != '\0')
 	{
@@ -74,7 +76,7 @@ char	*ft_createstr(char const *s, char c)
 		pstr++;
 	word = (char *)malloc(sizeof(char) * ft_wordlength(s, c) + 1);
 	i = 0;
-	while (i < ft_wordlength(s, c))
+	while (i < ft_wordlength(s, c) && *(word + i) != c)
 	{
 		*(word + i) = *(pstr + i);
 		i++;
@@ -93,19 +95,13 @@ char	**ft_split(char const *s, char c)
 	if (s == NULL)
 		return (NULL);
 	nwords = ft_nwords(s, c);
-	if (s == 0 || nwords == 0)
-	{
-		out = (char **)malloc(sizeof(char *));
-		if (out == 0)
-			return (NULL);
-		*out = (void *)0;
-		return (out);
-	}
-	out = (char **)malloc(sizeof(char *) * nwords + 1);
-	*(out + nwords + 1) = NULL;
+	out = ft_calloc((nwords + 1), sizeof(char *));
+	if (out == NULL)
+		return (NULL);
+	*(out + nwords) = NULL;
 	nword = 0;
 	ptrstr = (char *)s;
-	while (nword <= nwords)
+	while (nword < nwords)
 	{
 		*(out + nword) = ft_createstr(ptrstr, c);
 		nword++;
