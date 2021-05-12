@@ -6,7 +6,7 @@
 /*   By: fdanny <fdanny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 12:50:32 by fdanny            #+#    #+#             */
-/*   Updated: 2021/05/12 19:21:57 by fdanny           ###   ########.fr       */
+/*   Updated: 2021/05/12 19:49:40 by fdanny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,16 +65,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (*(s1 + ps1) != '\0' && ft_isinset(*(s1 + ps1), set))
 	{
 		ps1++;
-		//printf("%s\n--\n", s1 + ps1);
 	}
-	
 	while (pres < ft_lengthofres(s1, set))
 	{
 		*(result + pres) = *(s1 + ps1 + pres);
-		//printf("%c", *(result + pres));
 		pres++;
 	}
 	*(result + pres) = '\0';
-	//printf("%s", (result));
 	return (result);
 }

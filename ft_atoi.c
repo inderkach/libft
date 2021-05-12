@@ -6,7 +6,7 @@
 /*   By: fdanny <fdanny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 16:06:17 by fdanny            #+#    #+#             */
-/*   Updated: 2021/05/11 21:31:22 by fdanny           ###   ########.fr       */
+/*   Updated: 2021/05/12 19:50:30 by fdanny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_check_edge(int edge, int sign, unsigned long result)
 		else
 			sign = 0;
 	}
-		return (sign);
+	return (sign);
 }
 
 int	ft_atoi(const char *str)
