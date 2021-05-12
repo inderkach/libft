@@ -6,7 +6,7 @@
 /*   By: fdanny <fdanny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 12:51:47 by fdanny            #+#    #+#             */
-/*   Updated: 2021/05/11 16:03:43 by fdanny           ###   ########.fr       */
+/*   Updated: 2021/05/12 19:29:26 by fdanny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ char	**ft_split(char const *s, char c)
 	int		nwords;
 	char	*ptrstr;
 
+	if (s == NULL)
+		return (NULL);
 	nwords = ft_nwords(s, c);
 	if (s == 0 || nwords == 0)
 	{
