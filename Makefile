@@ -6,7 +6,7 @@
 #    By: fdanny <fdanny@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 23:59:45 by fdanny            #+#    #+#              #
-#    Updated: 2021/05/13 00:00:01 by fdanny           ###   ########.fr        #
+#    Updated: 2021/05/13 14:46:12 by fdanny           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRCS_M = ft_atoi.c\
 	ft_memcpy.c\
 	ft_memmove.c\
 	ft_memset.c\
+	ft_nwords.c\
 	ft_putchar_fd.c\
 	ft_putendl_fd.c\
 	ft_putnbr_fd.c\
@@ -47,23 +48,9 @@ SRCS_M = ft_atoi.c\
 	ft_tolower.c\
 	ft_toupper.c
 
-SRCS_B = ft_lstnew.c\
-	ft_lstadd_front.c\
-	ft_lstsize.c\
-	ft_lstlast.c\
-	ft_lstadd_back.c\
-	ft_lstdelone.c\
-	ft_lstclear.c\
-	ft_lstclear.c\
-	ft_lstiter.c\
-	ft_lstmap.c\
-	$(SRCS)
-
 OBJS_DIR = ./objs/
 OBJS_M = $(SRCS_M:.c=.o)
-OBJS_B = $(SRCS_B:.c=.o)
 DIR_OBJ_M = $(addprefix $(OBJS_DIR), $(OBJS_M))
-DIR_OBJ_B = $(addprefix $(OBJS_DIR), $(OBJS_B))
 
 $(OBJS_DIR)%.o : %.c libft.h
 	mkdir -p $(OBJS_DIR)
@@ -81,6 +68,3 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
-
-bonus: $(DIR_OBJ_B)
-	@ar r $(NAME) $(DIR_OBJ_B)
