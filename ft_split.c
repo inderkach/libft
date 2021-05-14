@@ -6,7 +6,7 @@
 /*   By: fdanny <fdanny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 12:51:47 by fdanny            #+#    #+#             */
-/*   Updated: 2021/05/14 19:31:01 by fdanny           ###   ########.fr       */
+/*   Updated: 2021/05/14 19:39:12 by fdanny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,22 @@ size_t	ft_wordlength(char const *s, char c)
 	return (l + 1);
 }
 
-static void	ft_createwords(char const *s, char **out, int nwords, char c)
+char	ft_check_null(char **res, int a)
+{
+	if ((*res + a) == NULL)
+	{
+		while (a >= 0)
+		{
+			free(*res + a);
+			a--;
+		}
+		free(res);
+		return (1);
+	}
+	return (0);
+}
+
+static char	**ft_createwords(char const *s, char **out, int nwords, char c)
 {
 	char	*ps;
 	int		nword;
@@ -68,28 +83,15 @@ static void	ft_createwords(char const *s, char **out, int nwords, char c)
 		if (ps == NULL)
 			ps = ft_strchr(s, '\0');
 		*(out + nword) = ft_calloc(ft_wordlength(s, c) + 1, sizeof(char));
+		if (ft_check_null(out, nword))
+			return (NULL);
 		ft_strlcpy(*(out + nword), (char *)s, ft_wordlength(s, c));
 		s = ps;
 		nword++;
 	}
 	*(out + nword) = NULL;
+	return (out);
 }
-
-// char	ft_check_null(char **res, int a, char c)
-// {
-// 	if ((*res + a) == NULL)
-// 	{
-// 		while (a <= 0)
-// 		{
-// 			ft_bzero((*res + a), ft_wordlength((*res + a), c));
-// 			free(*res + a);
-// 			a--;
-// 		}
-// 		free(res);
-// 		return (1);
-// 	}
-// 	return (0);
-// }
 
 char	**ft_split(char const *s, char c)
 {
@@ -102,6 +104,5 @@ char	**ft_split(char const *s, char c)
 	out = ft_calloc((nwords + 1), sizeof(char *));
 	if (out == NULL)
 		return (NULL);
-	ft_createwords((char *)s, out, nwords, c);
-	return (out);
+	return (ft_createwords((char *)s, out, nwords, c));
 }
