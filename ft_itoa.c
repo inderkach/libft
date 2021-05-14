@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdanny <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: fdanny <fdanny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 12:52:47 by fdanny            #+#    #+#             */
-/*   Updated: 2021/04/28 19:43:40 by fdanny           ###   ########.fr       */
+/*   Updated: 2021/05/14 16:26:18 by fdanny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_numsize(int n)
+static int	ft_numsize(int n)
 {
 	int	s;
 
@@ -29,7 +29,7 @@ int	ft_numsize(int n)
 	return (s);
 }
 
-void	ft_putnbr_str(char *s, int n)
+static void	ft_putnbr_str(char *s, int n)
 {
 	char	*ptr;
 	int		rzrd;

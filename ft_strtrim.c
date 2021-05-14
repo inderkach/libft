@@ -6,13 +6,13 @@
 /*   By: fdanny <fdanny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 12:50:32 by fdanny            #+#    #+#             */
-/*   Updated: 2021/05/12 19:49:40 by fdanny           ###   ########.fr       */
+/*   Updated: 2021/05/14 16:25:20 by fdanny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isinset(const char a, const char *set)
+static int	ft_isinset(const char a, const char *set)
 {
 	char	*ptr;
 
@@ -26,7 +26,7 @@ int	ft_isinset(const char a, const char *set)
 	return (0);
 }
 
-size_t	ft_lengthofres(char const *s, char const *set)
+static size_t	ft_lengthofres(char const *s, char const *set)
 {
 	char	*ptr;
 	size_t	res;

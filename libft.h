@@ -6,7 +6,7 @@
 /*   By: fdanny <fdanny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/24 15:57:52 by fdanny            #+#    #+#             */
-/*   Updated: 2021/05/13 14:48:13 by fdanny           ###   ########.fr       */
+/*   Updated: 2021/05/14 16:36:41 by fdanny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ void	*ft_memccpy (void *dest, void *src, int c, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
-
-int		ft_nwords(const char *s, char c);
 
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);

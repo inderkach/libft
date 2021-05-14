@@ -6,13 +6,13 @@
 /*   By: fdanny <fdanny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 16:05:36 by fdanny            #+#    #+#             */
-/*   Updated: 2021/05/13 13:47:47 by fdanny           ###   ########.fr       */
+/*   Updated: 2021/05/14 16:24:59 by fdanny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isneedle(const char *hs, const char *nd)
+static int	ft_isneedle(const char *hs, const char *nd)
 {
 	size_t	i;
 

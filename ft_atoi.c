@@ -6,12 +6,12 @@
 /*   By: fdanny <fdanny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 16:06:17 by fdanny            #+#    #+#             */
-/*   Updated: 2021/05/12 19:50:30 by fdanny           ###   ########.fr       */
+/*   Updated: 2021/05/14 16:22:33 by fdanny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-size_t	ft_spcrm(const char *str)
+static size_t	ft_spcrm(const char *str)
 {
 	size_t	p;
 
@@ -22,7 +22,7 @@ size_t	ft_spcrm(const char *str)
 	return (p);
 }
 
-int	ft_check_edge(int edge, int sign, unsigned long result)
+static int	ft_check_edge(int edge, int sign, unsigned long result)
 {
 	if (edge != 0)
 		sign *= result;
