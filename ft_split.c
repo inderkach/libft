@@ -6,7 +6,7 @@
 /*   By: fdanny <fdanny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 12:51:47 by fdanny            #+#    #+#             */
-/*   Updated: 2021/05/14 19:26:11 by fdanny           ###   ########.fr       */
+/*   Updated: 2021/05/14 19:31:01 by fdanny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,26 +56,23 @@ size_t	ft_wordlength(char const *s, char c)
 
 static void	ft_createwords(char const *s, char **out, int nwords, char c)
 {
-	size_t	size_str;
 	char	*ps;
+	int		nword;
 
-	while (nwords--)
+	nword = 0;
+	while (nword < nwords)
 	{
 		while (*(s) == c)
 			s++;
 		ps = ft_strchr(s, c);
 		if (ps == NULL)
 			ps = ft_strchr(s, '\0');
-		size_str = (size_t)(ps - s);
-		*out = ft_calloc(ft_wordlength(s, c) + 1, sizeof(char));
-		// if (*out== NULL)
-		// 	return ;
-		ft_strlcpy(*out, (char *)s, ft_wordlength(s, c));
-		//printf("%d\n", ft_wordlength(s, c));
+		*(out + nword) = ft_calloc(ft_wordlength(s, c) + 1, sizeof(char));
+		ft_strlcpy(*(out + nword), (char *)s, ft_wordlength(s, c));
 		s = ps;
-		out++;
+		nword++;
 	}
-	*out = NULL;
+	*(out + nword) = NULL;
 }
 
 // char	ft_check_null(char **res, int a, char c)
