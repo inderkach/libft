@@ -6,7 +6,7 @@
 /*   By: fdanny <fdanny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 12:51:47 by fdanny            #+#    #+#             */
-/*   Updated: 2021/05/14 19:39:12 by fdanny           ###   ########.fr       */
+/*   Updated: 2021/05/14 21:03:04 by fdanny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,25 @@
 
 static int	ft_nwords(const char *s, char c)
 {
-	int		n;
+	int		nwords;
 	char	*ptrs;
 	char	isprevc;
 
 	ptrs = (char *)s;
-	n = 0;
-	if (*ptrs != c)
-		n++;
-	isprevc = 0;
+	nwords = 0;
+	isprevc = 1;
 	while (*ptrs != '\0')
 	{
 		if (*ptrs == c)
 			isprevc = 1;
-		else if (isprevc && (*ptrs != c))
+		else if (isprevc)
 		{
-			n++;
+			nwords++;
 			isprevc = 0;
 		}
 		ptrs++;
 	}
-	return (n);
+	return (nwords);
 }
 
 size_t	ft_wordlength(char const *s, char c)
