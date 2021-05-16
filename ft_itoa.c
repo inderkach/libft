@@ -6,7 +6,7 @@
 /*   By: fdanny <fdanny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 12:52:47 by fdanny            #+#    #+#             */
-/*   Updated: 2021/05/16 12:05:11 by fdanny           ###   ########.fr       */
+/*   Updated: 2021/05/16 12:16:23 by fdanny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,5 @@ char	*ft_itoa(int n)
 			return (NULL);
 		ft_putnbr_str(array, n);
 	}
-		
 	return (array);
 }
