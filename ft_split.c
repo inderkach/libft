@@ -6,7 +6,7 @@
 /*   By: fdanny <fdanny@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 12:51:47 by fdanny            #+#    #+#             */
-/*   Updated: 2021/05/14 21:03:04 by fdanny           ###   ########.fr       */
+/*   Updated: 2021/05/14 23:31:15 by fdanny           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,12 @@ size_t	ft_wordlength(char const *s, char c)
 
 char	ft_check_null(char **res, int a)
 {
-	if ((*res + a) == NULL)
+	if (*(res + a) == NULL)
 	{
+		a--;
 		while (a >= 0)
 		{
-			free(*res + a);
+			free(*(res + a));
 			a--;
 		}
 		free(res);
